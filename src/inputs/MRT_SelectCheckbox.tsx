@@ -14,6 +14,7 @@ export const MRT_SelectCheckbox: FC<Props> = ({ row, selectAll }) => {
     useMRT();
 
   const onSelectChange = (event: ChangeEvent<HTMLInputElement>) => {
+      console.log("🚀 ~ file: MRT_SelectCheckbox.tsx ~ line 17 ~ onSelectChange ~ event", event)
     if (selectAll) {
       tableInstance?.getToggleAllRowsSelectedProps?.()?.onChange?.(event);
       onSelectAllChange?.(event, tableInstance.selectedFlatRows);
@@ -47,7 +48,8 @@ export const MRT_SelectCheckbox: FC<Props> = ({ row, selectAll }) => {
               ? localization.toggleSelectAll
               : localization.toggleSelectRow,
           }}
-          onChange={onSelectChange}
+          onClick={onSelectChange}
+          color="secondary"
           {...checkboxProps}
           title={undefined}
         />
